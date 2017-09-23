@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="assests/css/font-awesome.css" rel="stylesheet">
+<link href="assests/css/bootstrap.css" rel="stylesheet">
+<link href="assests/css/nav.css" rel="stylesheet">
+
+<title>Insert title here</title>
+<style type="text/css">
+html,body{
+	height:100%;
+	background-color: #666666;
+}
+.enclose{
+	min-height: 100%;
+	position: relative;
+}
+.footer{
+	position: absolute;
+	height:304px;
+	bottom: 0px;
+}
+.content{
+	margin-top:30px;
+	padding-bottom:300px;
+}
+</style>
+</head>
+<body ng-app="myApp">
+<div class="enclose">
+<div ng-include="'shared/navbar.html'"></div>
+<div class="content" ng-view></div>
+
+<footer>
+<div ng-include="'shared/footer.html'"></div>
+</footer>
+</div>
+<script src="assests/js/jquery.js"></script>
+<script src="assests/js/bootstrap.js"></script>
+<script src="assests/js/angular.js"></script>
+<script src="assests/js/angular-route.js"></script>
+<script src="assests/js/angular-cookies.js"></script>
+<script src="app/app.js"></script>
+</body>
+</html>
