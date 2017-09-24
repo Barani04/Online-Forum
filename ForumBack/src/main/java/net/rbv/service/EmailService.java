@@ -1,4 +1,4 @@
-package net.rbv.ForumBack.service;
+package net.rbv.service;
 
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package net.rbv.ForumBack.configuration;
+package net.rbv.configuration;
 
 import java.util.Properties;
 
@@ -12,10 +12,15 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import net.rbv.model.ForumPost;
+import net.rbv.model.ForumPostReply;
+import net.rbv.model.User;
+
 @Configuration
 @EnableTransactionManagement
 public class DBConfig {
 
+	@SuppressWarnings("rawtypes")
 	@Bean
 	public SessionFactory sessionFactory(){
 		LocalSessionFactoryBuilder lsf= new LocalSessionFactoryBuilder(getDataSource());
@@ -24,7 +29,7 @@ public class DBConfig {
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		lsf.addProperties(hibernateProperties);
-		Class classes[]=new Class[]{};
+		Class classes[]=new Class[]{User.class,ForumPost.class,ForumPostReply.class};
 		return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
 	
@@ -33,8 +38,8 @@ public class DBConfig {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("forum");
-		dataSource.setPassword("forum");
+		dataSource.setUsername("onlineforum");
+		dataSource.setPassword("onlineforum");
 		return dataSource;
 	}
 	

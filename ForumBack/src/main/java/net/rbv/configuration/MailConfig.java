@@ -1,4 +1,4 @@
-package net.rbv.ForumBack.configuration;
+package net.rbv.configuration;
 
 import java.util.Properties;
 
@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @Configuration
-@ComponentScan("com.niit.service")
+@ComponentScan("net.rbv.service")
 public class MailConfig {
 	
 	@Bean(name="mailSender")

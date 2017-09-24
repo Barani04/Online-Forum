@@ -1,4 +1,4 @@
-package net.rbv.ForumBack.model;
+package net.rbv.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,11 +14,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	
 	@NotEmpty
-	private String userNane;
+	private String userName;
 	
 	@NotEmpty
 	private String password;
@@ -48,13 +48,13 @@ public class User {
 	}
 
 
-	public String getUserNane() {
-		return userNane;
+	public String getUserName() {
+		return userName;
 	}
 
 
-	public void setUserNane(String userNane) {
-		this.userNane = userNane;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 
