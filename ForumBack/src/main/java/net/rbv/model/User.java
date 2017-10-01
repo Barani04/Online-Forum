@@ -14,10 +14,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int userId;
-	
-	@NotEmpty
 	private String userName;
 	
 	@NotEmpty
@@ -35,18 +31,7 @@ public class User {
 	private String role;
 	
 	
-	private String acc_status;
-
-
-	public int getUserId() {
-		return userId;
-	}
-
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
+	private boolean acc_status;
 
 	public String getUserName() {
 		return userName;
@@ -108,14 +93,16 @@ public class User {
 	}
 
 
-	public String getAcc_status() {
+	public boolean isAcc_status() {
 		return acc_status;
 	}
 
 
-	public void setAcc_status(String acc_status) {
+	public void setAcc_status(boolean acc_status) {
 		this.acc_status = acc_status;
 	}
+
+
 	
 	
 }

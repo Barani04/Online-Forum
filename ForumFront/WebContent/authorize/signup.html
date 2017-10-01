@@ -16,26 +16,10 @@
 					<div style="display: none" id="login-alert"
 						class="alert alert-danger col-sm-12"></div>
 					<div class="form-group">
-						<label for="firstname" class="col-xs-3 control-label">First
-							Name</label>
-						<div class="col-xs-9">
-							<input type="text" class="form-control" id="firstName"
-								 placeholder="First Name" autofocus>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="lastname" class="col-xs-3 control-label">Last
-							Name</label>
-						<div class="col-xs-9">
-							<input type="text" class="form-control" id="lastName"
-								 placeholder="Last Name">
-						</div>
-					</div>
-					<div class="form-group">
 						<label class="col-xs-3 control-label">UserName</label>
 						<div class="col-xs-9">
 							<input type="text" class="form-control" id="userName"
-								 placeholder="User Name">
+								ng-model="user.userName" placeholder="User Name">
 						</div>
 					</div>
 
@@ -43,29 +27,36 @@
 						<label for="email" class="col-xs-3 control-label">Email</label>
 						<div class="col-xs-9">
 							<input type="text" class="form-control" id="emailId"
-								 placeholder="Email Address">
+								ng-model="user.mailId" placeholder="Email Address">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="password" class="col-xs-3 control-label">Password</label>
 						<div class="col-xs-9">
 							<input type="password" class="form-control" id="password"
-								 placeholder="Password">
+								ng-model="user.password" placeholder="Password">
 						</div>
 					</div>
-
-
 					<div class="form-group">
-						<label for="email" class="col-xs-3 control-label">Contact</label>
+						<label for="firstname" class="col-xs-3 control-label">First
+							Name</label>
 						<div class="col-xs-9">
-							<input type="text" class="form-control" id="contactNo"
-								 placeholder="Mobie Number">
+							<input type="text" class="form-control" id="firstName"
+								ng-model="user.firstName" placeholder="First Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="lastname" class="col-xs-3 control-label">Last
+							Name</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="lastName"
+								 ng-model="user.lastName" placeholder="Last Name">
 						</div>
 					</div>
 					<div class="form-group">
 						<!-- Button -->
 						<div class="col-xs-offset-5 col-xs-2 col-xs-offset-5">
-							<button type="submit" class="btn btn-info">
+							<button type="submit" class="btn btn-info" ng-click="registerUser()">
 								<span class="icon-hand-right"></span> Sign Up
 							</button>
 						</div>

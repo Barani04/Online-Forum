@@ -1,5 +1,7 @@
 package net.rbv.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -39,6 +41,40 @@ public class UserDaoImpl implements UserDao {
 		Query query = session.createQuery("from User where mailId =?");
 		query.setString(0, mailId);
 		User user = (User) query.uniqueResult();
+		return user;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getUsers(String activated) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from User where acc_status = ?");
+		query.setString(0, activated);
+		List<User> users = query.list();
+		return users;
+	}
+
+	@Override
+	public User login(User user) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from User where userName=? and password=?");
+		query.setString(0, user.getUserName());
+		query.setString(1, user.getPassword());
+		return (User) query.uniqueResult();
+	}
+
+	@Override
+	public void update(User validuser) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(validuser);
+		
+	}
+
+	@Override
+	public User getUserByUserName(String username) {
+		System.out.println(username);
+		Session session = sessionFactory.getCurrentSession();
+		User user = (User) session.get(User.class, username);
 		return user;
 	}
 

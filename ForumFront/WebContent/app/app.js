@@ -10,9 +10,34 @@ app.config(function($routeProvider) {
 		templateUrl:'views/home.html'
 	})
 	.when('/login',{
-		templateUrl:'authorize/login.html'
+		templateUrl:'authorize/login.html',
+		controller:'AuthController'
 	})
 	.when('/register',{
-		templateUrl:'authorize/signup.html'
+		templateUrl:'authorize/signup.html',
+		controller:'AuthController'
 	})
+	.when('/request/userreq',{
+		templateUrl:'request/userreq.html',
+		controller:'RequestController'
+	})
+})
+
+app.run(function(AuthService,$rootScope,$cookieStore,$location) {
+	
+	if($rootScope.currentUser==undefined){
+		$rootScope.currentUser = $cookieStore.get("currentUser")
+	}
+	
+	$rootScope.logout=function(){
+		AuthService.logout().then(function(response) {
+		$rootScope.message='Logged Out Successfully'
+			delete $rootScope.currentUser
+			$cookieStore.remove("currentUser")
+			$location.path('/login')
+	},function(response){
+		$rootScope.error=response.data
+		$location.path('/login')
+	})
+}
 })
