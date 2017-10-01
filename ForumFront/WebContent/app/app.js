@@ -9,7 +9,10 @@ app.config(function($routeProvider) {
 	.when('/',{
 		templateUrl:'views/home.html'
 	})
-	.when('/contact',{
-		templateUrl:'views/contact.html'
+	.when('/login',{
+		templateUrl:'authorize/login.html'
+	})
+	.when('/register',{
+		templateUrl:'authorize/signup.html'
 	})
 })

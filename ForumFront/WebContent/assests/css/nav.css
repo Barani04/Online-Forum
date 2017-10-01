@@ -1,6 +1,6 @@
 .navbar-default{
-	background-color: #0d0d0d;
-	border-color: #0d0d0d;
+	background-color: #404040;
+	border-color: #404040;
 }
 
 .dropdown-menu>li>a,
@@ -11,8 +11,8 @@
 .navbar-default .navbar-nav .open .dropdown-menu>li>a
 {
     color:#f8f8f8;
-    background-color:#0d0d0d;
-    border-color: #0d0d0d;
+    background-color:#404040;
+    border-color: #404040;
 	transition:all 1s;
 	-o-transition:all 1s;
 	-moz-transition:all 1s;
