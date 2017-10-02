@@ -15,4 +15,16 @@ app.controller('RequestController',function(AuthService,$scope,$rootScope,$locat
 			$scope.error=response.data
 			$location.path('/login')
 	})
+	
+	$scope.changeAccStatus=function(name){
+		AuthService.changeAccStatus(name).then(function(response){
+			$scope.changeAccStatus=response.data;
+			$scope.succ="User Account Activated...!"
+			$route.reload();
+		},function(response){
+			$scope.error=response.data
+			$location.path('/home')
+		})
+	}
+	
 })

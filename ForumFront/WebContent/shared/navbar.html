@@ -17,11 +17,11 @@
 				<!-- <li><a class="faa-parent animated-hover"> <i
 						class="fa fa-fw fa-lg fa-quote-left faa-tada faa-fast"></i>About
 						Us
-				</a></li>
-				<li><a href="#!contact" class="faa-parent animated-hover"> <i
-						class="fa fa-fw fa-lg fa-map-marker faa-tada faa-fast"></i>Contact
-						Us
-				</a></li> -->
+				</a></li>-->
+				<li><a href="#!userreq" class="faa-parent animated-hover" ng-show="currentUser.role == 'ADMIN'"> <i
+						class="fa fa-fw fa-lg fa-map-marker faa-tada faa-fast"></i> User Requests
+						<span class="badge" ng-if="ul != 0">{{ul}}</span>
+				</a></li> 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="faa-parent animated-hover" href="#!login" ng-hide="currentUser.userName"> <i

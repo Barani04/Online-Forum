@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import net.rbv.dao.UserDao;
 import net.rbv.model.User;
+import net.rbv.service.EmailService;
 import net.rbv.service.Error;
 
 @Controller
@@ -22,6 +23,9 @@ public class UserController {
 
 	@Autowired
 	private UserDao userdao;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	@RequestMapping(value="/registeruser", method = RequestMethod.POST)
 	public ResponseEntity<?> registerUser(@RequestBody User user){
@@ -51,10 +55,11 @@ public class UserController {
 		User validuser = userdao.login(user);
 		System.out.println(user.getMailId() + "--" + user.getUserName() + "--" + user.getPassword() + "--"
 				+ user.getFirstName() + "--" + user.getLastName());
-		if (validuser == null) {
+		if (validuser== null) {
 			Error error = new Error(4, "Invalid Username/Password");
 			return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED);
 		}
+		
 		else if(validuser.isAcc_status()==false){
 			Error error = new Error(8,"Your Account is not yet activated..!Wait for Activation Mail");
 			return new ResponseEntity<Error>(error, HttpStatus.NOT_ACCEPTABLE);
@@ -78,13 +83,26 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/getusers/{activated}",method=RequestMethod.GET)
-	public ResponseEntity<?> getUserReq(@PathVariable String activated,HttpSession session){
+	public ResponseEntity<?> getUserReq(@PathVariable int activated,HttpSession session){
 		if(session.getAttribute("username")==null){
 			Error error = new Error(5, "Unauthorized User");
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		}
 		List<User> users=userdao.getUsers(activated);
 		return new ResponseEntity<List<User>>(users,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/activateuser/{username}",method=RequestMethod.POST)
+	public ResponseEntity<?> acctivateAcc(@PathVariable("username") String username,HttpSession session){
+		if(session.getAttribute("username")==null){
+			Error error = new Error(5, "Unauthorized User");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+		User user =userdao.getUserByUserName(username);
+		user.setAcc_status(true);
+		userdao.update(user);
+		emailService.approvedUserNotify(user);
+		return new ResponseEntity<User>(user,HttpStatus.OK);
 	}
 		
 }

@@ -12,7 +12,7 @@ public interface UserDao {
 
 	User validateMailId(String mailId);
 
-	List<User> getUsers(String activated);
+	List<User> getUsers(int activated);
 
 	User login(User user);
 

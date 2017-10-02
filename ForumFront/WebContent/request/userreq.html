@@ -1,20 +1,21 @@
-<h4>User Requests for Approval</h4>
+<h3 style="font-weight: bold;">User Requests for Approval</h3>
+<div class="alert alert-success col-xs-6 col-xs-offset-3 text-center" id="notify" role="alert" ng-if="succ != undefined" ng-animate="{enter: 'fade', leave: 'fade'}"> {{succ}}</div>
 
 <table class="table table-striped">
-	<thead>
+	<thead style="font-weight: bold;">
 		<tr>
 			<td>User Name</td>
-			<td>User Email</td>
+			<td>Email</td>
 			<td>First Name</td>
 			<td>Action</td>
 		</tr>
 	</thead>
-	<tbody ng-repeat="user in userRequests">
-		<tr>
-			<td>{user.userName}</td>
-			<td>{user.mailId}</td>
-			<td>{user.firstName}</td>
-			<td><button ng-click="approveUser()" class="btn btn-sm btn-success"><i class="fa fa-check" style="color: white"></i></button></td>
+	<tbody>
+		<tr ng-repeat="user in userRequests">
+			<td>{{user.userName}}</td>
+			<td>{{user.mailId}}</td>
+			<td>{{user.firstName}}</td>
+			<td><button ng-click="changeAccStatus(user.userName)" class="btn btn-sm btn-success"><i class="fa fa-check" style="color: white" ></i></button></td>
 		</tr>
 	</tbody>
 </table>

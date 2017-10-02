@@ -20,7 +20,11 @@ app.factory('AuthService',['$http',function($http){
 	}
 	
 	authService.getUserAccWaitingForActivation = function(){
-		return $http.get(base_url+"/getusers/"+'New')
+		return $http.get(base_url+"/getusers/"+0)
+	}
+	
+	authService.changeAccStatus=function(name){
+		return $http.post(base_url+"/activateuser/"+name)
 	}
 	
 	return authService;

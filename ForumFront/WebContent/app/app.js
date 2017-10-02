@@ -17,7 +17,7 @@ app.config(function($routeProvider) {
 		templateUrl:'authorize/signup.html',
 		controller:'AuthController'
 	})
-	.when('/request/userreq',{
+	.when('/userreq',{
 		templateUrl:'request/userreq.html',
 		controller:'RequestController'
 	})
@@ -32,6 +32,7 @@ app.run(function(AuthService,$rootScope,$cookieStore,$location) {
 	$rootScope.logout=function(){
 		AuthService.logout().then(function(response) {
 		$rootScope.message='Logged Out Successfully'
+			$('#notify').fadeIn(100).delay(2000).fadeOut(200);
 			delete $rootScope.currentUser
 			$cookieStore.remove("currentUser")
 			$location.path('/login')

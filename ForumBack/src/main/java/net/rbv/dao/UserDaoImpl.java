@@ -46,10 +46,10 @@ public class UserDaoImpl implements UserDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<User> getUsers(String activated) {
+	public List<User> getUsers(int activated) {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from User where acc_status = ?");
-		query.setString(0, activated);
+		query.setInteger(0, activated);
 		List<User> users = query.list();
 		return users;
 	}
