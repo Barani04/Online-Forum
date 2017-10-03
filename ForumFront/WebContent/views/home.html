@@ -1,5 +1,4 @@
 <h3 style="padding-left: 10px;">
-	List Of Queries
 	<a ng-if="currentUser.firstName" style="margin-left: 20px; float: right;"
 		class="btn btn-sm btn-primary text-right" data-toggle="modal"
 		data-target=".bs-example-modal-md">
@@ -49,4 +48,55 @@
 	</div>
 </div>
 
+	<a style="margin-left: 20px; float: right;"
+		class="btn btn-sm btn-primary text-right" data-toggle="modal"
+		data-target=".bs-example-modal-md">
+		<i class="fa fa-plus"> </i> Your Query
+	</a>
+</h3>
+<hr>
 
+<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Post Your Query</h4>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="row">
+						<div class="form-group col-md-10 col-md-offset-1">
+							<label for="recipient-name" class="control-label">Username:</label>
+							<input type="text" class="form-control" ng-model="fpost.">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-10 col-md-offset-1">
+							<label for="recipient-name" class="control-label">EmailId:</label>
+							<input type="text" class="form-control" ng-model="fpost.">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-10 col-md-offset-1">
+							<label for="message-text" class="control-label">Query:</label>
+							<textarea class="form-control" ng-model="fpost.postQue"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group text-center col-md-offset-4 col-md-4 col-md-offset-4">
+							<button class="btn btn-success" ng-click="submitQuery()">Post Query</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Send message</button>
+			</div> -->
+		</div>
+	</div>
+</div>

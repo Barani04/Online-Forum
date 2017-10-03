@@ -74,13 +74,7 @@ public class Question {
 	}
 
 	public void setPostedOn(Date postedOn) {
-		this.postedOn = postedOn;
+		this.postedOn = postedOn;	
 	}
-
-	
-
-	
-
-	
-	
 }
+	
