@@ -21,6 +21,9 @@ app.config(function($routeProvider) {
 		templateUrl:'request/userreq.html',
 		controller:'RequestController'
 	})
+	.when('/submitquery',{
+		templateUrl:''
+	})
 })
 
 app.run(function(AuthService,$rootScope,$cookieStore,$location) {

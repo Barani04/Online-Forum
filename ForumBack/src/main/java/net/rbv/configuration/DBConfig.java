@@ -12,8 +12,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import net.rbv.model.ForumPost;
-import net.rbv.model.ForumPostReply;
+import net.rbv.model.Answer;
+import net.rbv.model.Question;
 import net.rbv.model.User;
 
 @Configuration
@@ -29,7 +29,7 @@ public class DBConfig {
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		lsf.addProperties(hibernateProperties);
-		Class classes[]=new Class[]{User.class,ForumPost.class,ForumPostReply.class};
+		Class classes[]=new Class[]{User.class,Question.class,Answer.class};
 		return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
 	
