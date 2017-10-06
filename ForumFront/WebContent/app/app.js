@@ -7,8 +7,7 @@ var app = angular.module("myApp",['ngRoute','ngCookies'])
 app.config(function($routeProvider) {
 	$routeProvider
 	.when('/',{
-		templateUrl:'views/home.html',
-		controller:'QuestionController'
+		templateUrl:'views/home.html'
 	})
 	.when('/login',{
 		templateUrl:'authorize/login.html',
@@ -22,8 +21,10 @@ app.config(function($routeProvider) {
 		templateUrl:'request/userreq.html',
 		controller:'RequestController'
 	})
-	.when('/submitquery',{
-		templateUrl:''
+	
+	.when('/viewquery/:questionid',{
+		templateUrl:'forum/viewquery.html',
+		controller:'QueAnsDetailController'
 	})
 })
 

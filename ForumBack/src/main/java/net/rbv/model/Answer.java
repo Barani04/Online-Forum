@@ -7,10 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Answer {
@@ -19,7 +19,7 @@ public class Answer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int answerId;
 
-	@NotEmpty
+	@Lob
 	private String answer;
 
 	@ManyToOne
@@ -32,6 +32,10 @@ public class Answer {
 	
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date answerdOn;
+	
+	private boolean verifiedAnswer;
+	
+	private int likes;
 
 	public Date getAnswerdOn() {
 		return answerdOn;
@@ -79,6 +83,22 @@ public class Answer {
 
 	public void setEmailid(String emailid) {
 		this.emailid = emailid;
+	}
+
+	public boolean isVerifiedAnswer() {
+		return verifiedAnswer;
+	}
+
+	public void setVerifiedAnswer(boolean verifiedAnswer) {
+		this.verifiedAnswer = verifiedAnswer;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
 
 	

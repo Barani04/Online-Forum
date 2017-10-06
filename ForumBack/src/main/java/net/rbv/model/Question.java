@@ -6,11 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Lob;
 import javax.persistence.Temporal;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Question {
@@ -19,7 +17,7 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int questionId;
 	
-	@NotEmpty
+	@Lob
 	private String question;
 	
 	private String username;
@@ -28,6 +26,8 @@ public class Question {
 
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date postedOn;
+	
+	private int vote;
 
 	public int getQuestionId() {
 		return questionId;
@@ -75,6 +75,14 @@ public class Question {
 
 	public void setPostedOn(Date postedOn) {
 		this.postedOn = postedOn;	
+	}
+
+	public int getVote() {
+		return vote;
+	}
+
+	public void setVote(int vote) {
+		this.vote = vote;
 	}
 }
 	

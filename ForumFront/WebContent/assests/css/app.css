@@ -1,0 +1,34 @@
+.media-body{
+	padding:5px 5px;
+}
+.row{
+	margin-left:10px;
+}
+#queries{
+	width:300px;
+	height:60px;
+	margin:5px 10px;
+	background-color: #ff80ff;
+	margin-bottom:10px;
+}
+
+.viewque{
+	width:900px;
+	margin:auto;
+	height:200px;
+	background-color: #ffffff !important;
+}
+
+.viewque span{
+	padding:20px 20px;
+	
+}
+.viewque h4{
+	font-weight: bolder;
+	padding:0px 20px;
+	padding-bottom: 20px;
+}
+
+.ans{
+	padding:20px 30px;
+}
