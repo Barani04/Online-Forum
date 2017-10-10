@@ -35,5 +35,7 @@ app.controller("QueAnsController",function(QueAnsService,$rootScope,$scope,$loca
 		}
 	})
 	}
+	
+	
 	listallqueries()
 })

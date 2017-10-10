@@ -6,15 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class VoteQuestion {
+public class VoteDetails {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int voteid;
 	
-	private int questionid;
-	
 	private String username;
+	
+	private int questionid;
 
 	public int getVoteid() {
 		return voteid;
@@ -24,20 +24,20 @@ public class VoteQuestion {
 		this.voteid = voteid;
 	}
 
-	public int getQuestionid() {
-		return questionid;
-	}
-
-	public void setQuestionid(int questionid) {
-		this.questionid = questionid;
-	}
-
 	public String getUsername() {
 		return username;
 	}
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public int getQuestionid() {
+		return questionid;
+	}
+
+	public void setQuestionid(int questionid) {
+		this.questionid = questionid;
 	}
 	
 	

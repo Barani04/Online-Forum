@@ -35,7 +35,6 @@ public class Answer {
 	
 	private boolean verifiedAnswer;
 	
-	private int likes;
 
 	public Date getAnswerdOn() {
 		return answerdOn;
@@ -93,14 +92,4 @@ public class Answer {
 		this.verifiedAnswer = verifiedAnswer;
 	}
 
-	public int getLikes() {
-		return likes;
-	}
-
-	public void setLikes(int likes) {
-		this.likes = likes;
-	}
-
-	
-
-}
+}	

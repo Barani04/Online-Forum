@@ -11,13 +11,25 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="#!" class="faa-parent animated-hover"> <i
-						class="fa fa-fw fa-lg fa-home faa-tada faa-fast"></i>Home
+				<li ng-show="currentUser.userName"><a href="#!" class="faa-parent animated-hover"> <i
+						class="fa fa-fw fa-lg fa-home faa-tada faa-fast" ></i>Home
 				</a></li>
-				<li><a href="#!userreq" class="faa-parent animated-hover" ng-show="currentUser.role == 'ADMIN'"> <i
-						class="fa fa-fw fa-lg fa-map-marker faa-tada faa-fast"></i> User Requests
-						<span class="badge" ng-if="ul != 0">{{ul}}</span>
-				</a></li> 
+				<li></li> 
+				<li class="dropdown">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.role == 'ADMIN'">Requests<span class="caret"></span></a>
+						<ul class="dropdown-menu"> 
+							<li><a href="#!userreq" class="faa-parent animated-hover"> 
+								<i class="fa fa-fw fa-lg fa-map-marker faa-tada faa-fast"></i>
+								 User Requests <span class="badge" ng-if="ul != 0">{{ul}}</span>
+								</a>
+							</li>
+							<li><a href="#!forumreq" class="faa-parent animated-hover"> 
+								<i class="fa fa-fw fa-lg fa-map-marker faa-tada faa-fast"></i>
+								 Forum Requests <span class="badge" ng-if="len != 0">{{len}}</span>
+								</a>
+							</li>
+			 			</ul> 
+			 	</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="faa-parent animated-hover" href="#!login" ng-hide="currentUser.userName"> <i

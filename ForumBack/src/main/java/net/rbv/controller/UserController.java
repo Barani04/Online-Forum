@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import net.rbv.dao.UserDao;
 import net.rbv.model.User;
-import net.rbv.service.EmailService;
 import net.rbv.service.Error;
 
 @Controller
@@ -24,8 +23,6 @@ public class UserController {
 	@Autowired
 	private UserDao userdao;
 	
-	@Autowired
-	private EmailService emailService;
 	
 	@RequestMapping(value="/registeruser", method = RequestMethod.POST)
 	public ResponseEntity<?> registerUser(@RequestBody User user){
@@ -101,7 +98,6 @@ public class UserController {
 		User user =userdao.getUserByUserName(username);
 		user.setAcc_status(true);
 		userdao.update(user);
-		emailService.approvedUserNotify(user);
 		return new ResponseEntity<User>(user,HttpStatus.OK);
 	}
 		

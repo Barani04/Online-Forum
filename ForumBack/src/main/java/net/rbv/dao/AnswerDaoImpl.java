@@ -10,46 +10,45 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import net.rbv.model.Question;
+import net.rbv.model.Answer;
 
 @Repository
 @Transactional
-public class QuestionDaoImpl implements QuestionDao {
+public class AnswerDaoImpl implements AnswerDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
+	
 	@Override
-	public void submitQuery(Question quest) {
+	public void submitAnswer(Answer ans) {
 		Session session = sessionFactory.getCurrentSession();
-		session.save(quest);
+		session.save(ans);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Question> getAllQuestions(boolean status) {
+	public List<Answer> getAllAnswers(int queid) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query= session.createQuery("from Question where approvestatus = ?");
-		query.setBoolean(0, status);
-		List<Question> queries = query.list();
-		return queries;
-	}
-
-	@Override
-	public Question getQuestionById(int queid) {
-		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from Question where questionid = ?");
+		Query query = session.createQuery("from Answer where question.questionId = ?");
 		query.setInteger(0, queid);
-		Question que = (Question) query.uniqueResult();
-		return que;
+		List<Answer> answers = query.list();
+		return answers;
 	}
 
 	@Override
-	public void updateQuestion(Question que) {
+	public Answer getAnswerById(int answerId) {
 		Session session = sessionFactory.getCurrentSession();
-		session.update(que);
+		Query query = session.createQuery("from Answer where answerId = ?");
+		query.setInteger(0, answerId);
+		Answer ans = (Answer) query.uniqueResult();
+		return ans;
+	}
+
+	@Override
+	public void updateAnswer(Answer ans) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(ans);
 		
 	}
-	
-	
+
 }

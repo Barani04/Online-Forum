@@ -2,7 +2,7 @@
  * Authorization Controller
  */
 
-app.controller('AuthController',function(AuthService,$scope,$rootScope,$location,$cookieStore){
+app.controller('AuthController',function(AuthService,QueAnsService,$scope,$rootScope,$location,$cookieStore){
 	$scope.user = {}
 	
 	$scope.registerUser=function(){
@@ -33,6 +33,14 @@ app.controller('AuthController',function(AuthService,$scope,$rootScope,$location
 				$scope.error=response.data
 				$location.path('/login')
 		})
+			QueAnsService.getForumPostsWaitingForApproval().then(function(response){
+				$rootScope.len=response.data.length;
+				$cookieStore.put("len",response.data.length)
+			},function(response){
+				$scope.error=response.data
+				$location.path('/login')
+			})
+		
 		
 		},function(response){
 			if(response.status=401){

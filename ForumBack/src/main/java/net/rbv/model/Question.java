@@ -27,7 +27,11 @@ public class Question {
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date postedOn;
 	
-	private int vote;
+	private int noOfAns;
+	
+	private boolean approvestatus;
+	
+	private int votes;
 
 	public int getQuestionId() {
 		return questionId;
@@ -77,12 +81,29 @@ public class Question {
 		this.postedOn = postedOn;	
 	}
 
-	public int getVote() {
-		return vote;
+	public int getNoOfAns() {
+		return noOfAns;
 	}
 
-	public void setVote(int vote) {
-		this.vote = vote;
+	public void setNoOfAns(int noOfAns) {
+		this.noOfAns = noOfAns;
 	}
+
+	public boolean isApprovestatus() {
+		return approvestatus;
+	}
+
+	public void setApprovestatus(boolean approvestatus) {
+		this.approvestatus = approvestatus;
+	}
+
+	public int getVotes() {
+		return votes;
+	}
+
+	public void setVotes(int votes) {
+		this.votes = votes;
+	}
+
 }
 	

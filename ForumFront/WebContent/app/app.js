@@ -22,6 +22,11 @@ app.config(function($routeProvider) {
 		controller:'RequestController'
 	})
 	
+	.when('/forumreq',{
+		templateUrl:'request/forumpostreq.html',
+		controller:'RequestController'
+	})
+	
 	.when('/viewquery/:questionid',{
 		templateUrl:'forum/viewquery.html',
 		controller:'QueAnsDetailController'
@@ -32,6 +37,9 @@ app.run(function(AuthService,$rootScope,$cookieStore,$location) {
 	
 	if($rootScope.currentUser==undefined){
 		$rootScope.currentUser = $cookieStore.get("currentUser")
+	}
+	if($rootScope.len==undefined){
+		$rootScope.len = $cookieStore.get("len")
 	}
 	
 	$rootScope.logout=function(){

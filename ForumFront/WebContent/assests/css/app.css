@@ -15,7 +15,7 @@
 .viewque{
 	width:900px;
 	margin:auto;
-	height:200px;
+	margin-top:20px;
 	background-color: #ffffff !important;
 }
 
@@ -26,9 +26,50 @@
 .viewque h4{
 	font-weight: bolder;
 	padding:0px 20px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 .ans{
 	padding:20px 30px;
+}
+
+.commentbox{
+	margin-left:15px;
+	width:400px;
+	padding:20px 20px;
+}
+.commentbox button{
+	float:right;
+	padding-bottom: 5px;
+}
+
+hr{
+	margin-left: 10px;
+	margin-right:10px;
+}
+
+.panel {
+	position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.panel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
 }
